@@ -1,0 +1,52 @@
+I have created a simple web application project via MAVEN by using JAVA programming language by using JAX-RS.
+It consists of one POST REST API which will try to convert simple json to csv.
+
+Below you will have an example of testing data. There you can see that json payload will consist of 4 properties.
+destination -> where you want to store your csv file on your local machine?
+json -> json which you want to translate to the csv
+arrayName -> name of a json array (could have been retrieved from json propertie but didn't had time to make a logic)
+newFile-> name of a new file which is going to be created. NOTE: remember to add .csv extension at the end (logic could have been done in a program but was in a hurry)
+
+
+TEST DATA
+URL > http://localhost:8080/lumoa/ will give you an index.html which has a Hello World to quick check if the web app is working.
+URL > http://localhost:8080/lumoa/service/jsontocsv (POST)
+BODY:
+{
+"destination":"C:/MyJavaProjects",
+"json" : "{persons:[{name:Alexey, surname:Smolyaninov, age: 22}, {name:Alexander, surname:Smolkov, age:33}]}",
+"arrayName" : "persons",
+"newFile" : "newFile.csv"
+}
+
+RESPONSE (in a jason format)
+{"path":"You might find your your file at ->C:/MyJavaProjects/newFile.csv"} 
+
+After you will see this Response message you can go to the directory mensioned in a response and try to open your csv file.
+Be awared that program have split the inforamation with ; character instead of , (Done manualy by me cause my Excel was splitting data with ; character)
+
+
+
+
+WARNING: Did the project very quickly with out any data checking which is passed by the user.
+
+Must be run on GLASSFISH server version 4.1, version 4.1.1 might through an error
+
+DEPENDENCIES for pom.xml
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.2</version>
+    <type>jar</type>
+</dependency>
+<dependency>
+    <groupId>javax</groupId>
+    <artifactId>javaee-web-api</artifactId>
+    <version>7.0</version>
+    <scope>provided</scope>
+</dependency>
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20090211</version>
+</dependency>
