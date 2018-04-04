@@ -1,0 +1,4 @@
+com\alexey\lumoa\jsontocsv\boundary\HashResource.class
+com\alexey\lumoa\jsontocsv\boundary\Service.class
+com\alexey\lumoa\jsontocsv\entity\UserInput.class
+com\alexey\lumoa\Configuration.class
